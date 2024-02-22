@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:groceries/Core/AppColors/colors.dart';
+import 'package:groceries/Core/Util/AppFunctions/app_functions.dart';
 import 'package:groceries/Core/Util/AppImages/app_images.dart';
 import 'package:groceries/Core/Util/PasswordFormFieldTextWidgets/password_text_form_field_widget.dart';
+import 'package:groceries/Core/Util/TextFormFieldforEmail/text_form_field_email.dart';
 import 'package:groceries/Core/Util/Widgets/ButtonWidgets/app_Buttons.dart';
+import 'package:groceries/Features/RegisterView/register_screen.dart';
 
 class LogInScreen extends StatefulWidget {
   const LogInScreen({super.key});
@@ -29,7 +32,7 @@ class _LogInScreenState extends State<LogInScreen> {
                 const Center(
                     child: Image(image: AssetImage(AppImages.coloredCarrot))),
                 const SizedBox(
-                  height: 20,
+                  height: 100,
                 ),
                 const Text(
                   'LogIn',
@@ -40,17 +43,8 @@ class _LogInScreenState extends State<LogInScreen> {
                   style: TextStyle(color: Colors.grey),
                 ),
                 const SizedBox(height: 40),
-                TextFormField(
-                  decoration: InputDecoration(
-                    contentPadding: const EdgeInsets.all(5),
-                    label: const Text(
-                      'Email',
-                      style: TextStyle(fontWeight: FontWeight.w300),
-                    ),
-                    hintText: 'imshuvo97@gmail.com',
-                    hintStyle: GoogleFonts.aBeeZee(),
-                  ),
-                ),
+                // PassWordTestFormF
+                const TextFormFieldforEmail(),
                 const PassWordTestFormField(),
                 const Row(
                   mainAxisAlignment: MainAxisAlignment.end,
@@ -61,7 +55,11 @@ class _LogInScreenState extends State<LogInScreen> {
                 const SizedBox(height: 30),
                 AppButtons(
                   text: 'Log In',
-                  onTap: () {},
+                  onTap: () {
+                    Appfunctions.navigatingToNextScreen(
+                        context: context,
+                        navigatedScreen: const RegisterScreen());
+                  },
                 ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.start,
